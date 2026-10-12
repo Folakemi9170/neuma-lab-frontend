@@ -1,0 +1,53 @@
+/* hero-background.module.css */
+.wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.brandWash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 3, 1, 0.35) 0%,
+    rgba(36, 21, 72, 0.3) 40%,
+    rgba(59, 39, 111, 0.25) 100%
+  );
+}
+
+/* Desktop/tablet: left-to-right fade, matches left-aligned headline text */
+.legibilityFade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(11, 3, 1, 0.6) 0%,
+    rgba(11, 3, 1, 0.3) 55%,
+    rgba(11, 3, 1, 0.05) 100%
+  );
+}
+
+/* Mobile: text usually stacks full-width, so fade top-to-bottom instead,
+   heavier at the bottom where text/CTA typically sits */
+@media (max-width: 767px) {
+  .legibilityFade {
+    background: linear-gradient(
+      to bottom,
+      rgba(11, 3, 1, 0.35) 0%,
+      rgba(11, 3, 1, 0.35) 40%,
+      rgba(11, 3, 1, 0.65) 100%
+    );
+  }
+}

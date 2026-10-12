@@ -1,26 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 :root {
+  --gold: #3b276f;
+  --gold-dark: #241548;
+  --yellow: #fac100;
+  --dark: #0b0301;
+  --dark2: #241548;
+  --mid: #7658a8;
+  --warm: #e8e6ed;
+  --warm2: #DFDCE6;
+  --border: #D4CEE0;
+  --text: #0b0301;
+  --muted: #5c5568;
+  --light: #fff;
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0b0301;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { scroll-behavior: smooth; }
+body { font-family: 'Outfit', sans-serif; background: #fff; color: var(--text); overflow-x: hidden; }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+.page-bg { min-height: 100vh; background: var(--warm); }
+.card { background: #fff; border: 0.5px solid var(--border); border-radius: 8px; padding: clamp(24px, 3vw, 40px); }
+
+.btn-primary { width: 100%; background: var(--text); color: #fff; padding: 12px 24px; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; border: none; cursor: pointer; transition: background 0.2s; letter-spacing: 0.4px; }
+.btn-primary:hover { background: var(--mid); }
+.btn-primary:disabled { background: var(--muted); cursor: not-allowed; }
+
+.btn-gold { width: 100%; background: var(--gold); color: #fff; padding: 12px 24px; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; border: none; cursor: pointer; transition: background 0.2s; letter-spacing: 0.4px; }
+.btn-gold:hover { background: var(--gold-dark); }
+.btn-gold:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.input-field { width: 100%; padding: 10px 14px; border: 0.5px solid var(--border); border-radius: 3px; font-family: 'Outfit', sans-serif; font-size: 14px; color: var(--text); background: var(--warm); outline: none; transition: border-color 0.2s; box-sizing: border-box; }
+.input-field:focus { border-color: var(--gold); }
+
+.label { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; font-family: 'Outfit', sans-serif; }
+.eyebrow { font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; font-weight: 400; font-family: 'Outfit', sans-serif; }
+.serif { font-family: 'Cormorant Garamond', serif; }
+
+.error-box { background: #fff5f5; border: 0.5px solid #e8a4a4; border-radius: 4px; padding: 12px 14px; font-size: 13px; color: #8b2a2a; font-family: 'Outfit', sans-serif; }
+.success-box { background: #f0faf4; border: 0.5px solid #7ec49a; border-radius: 4px; padding: 12px 14px; font-size: 13px; color: #1e5c35; font-family: 'Outfit', sans-serif; }
+
+.spinner { width: 40px; height: 40px; border: 2px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner-screen { min-height: 100vh; background: var(--warm); display: flex; align-items: center; justify-content: center; }
+
